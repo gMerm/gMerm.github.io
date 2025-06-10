@@ -1,10 +1,551 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Personal Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Georgios Mermigkis - Computer Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-card {
+            padding: 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .photo-placeholder {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-placeholder:hover {
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .header-content h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header-content h2 {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .section {
+            padding: 40px;
+        }
+
+        .section h3 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            position: relative;
+        }
+
+        .section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .education-item, .experience-item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            border-left: 5px solid #3498db;
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover, .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .item-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .item-date {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .item-company {
+            color: #3498db;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 25px;
+            border-radius: 15px;
+            border-top: 4px solid #3498db;
+        }
+
+        .skill-category h4 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #e74c3c;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .project-date {
+            color: #e74c3c;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .languages {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .language-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .language-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2.2em;
+            }
+            
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .photo-placeholder {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My Website!</h1>
-    <p>This is hosted on GitHub Pages.</p>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="card header-card">
+            <div class="profile-section">
+                <div class="photo-placeholder">
+                    <i class="fas fa-user" style="font-size: 3em;"></i>
+                    <!-- Replace this placeholder with: <img src="your-photo.jpg" alt="Georgios Mermigkis" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;"> -->
+                </div>
+                <div class="header-content">
+                    <h1>Georgios Mermigkis</h1>
+                    <h2>Computer Engineer & HPC Specialist</h2>
+                    <div class="contact-info">
+                        <a href="tel:+306985715680" class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            +30 6985715680
+                        </a>
+                        <a href="mailto:giwrgosmerm@gmail.com" class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            giwrgosmerm@gmail.com
+                        </a>
+                        <a href="https://www.linkedin.com/in/georgios-mermigkis" target="_blank" class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            LinkedIn
+                        </a>
+                        <a href="https://github.com/gMerm" target="_blank" class="contact-item">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education Section -->
+        <div class="card">
+            <div class="section">
+                <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Computer Engineering and Informatics</div>
+                            <div class="item-company">University of Patras, Greece</div>
+                        </div>
+                        <div class="item-date">2025</div>
+                    </div>
+                    <p><strong>Master Thesis:</strong> High Performance Computing for Computer-Aided Design of Metamaterials</p>
+                    <p><strong>Expected Grade:</strong> 8.0 | <strong>Status:</strong> 5th Year, Graduating July 2025</p>
+                    <p><strong>Relevant Coursework:</strong> Data Mining, High Performance Computing, Parallel Computing, Advanced Networks Security, Internet of Things, Computational Complexity, Data Structures, Operating Systems, Distributed Data</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience Section -->
+        <div class="card">
+            <div class="section">
+                <h3><i class="fas fa-briefcase"></i> Experience</h3>
+                
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Software Engineer</div>
+                            <div class="item-company">VectorCamp PC</div>
+                        </div>
+                        <div class="item-date">Mar 2024 - Present</div>
+                    </div>
+                    <p>SIMD development on SSE4.2, AVX2, AVX512, NEON, VSX. ML workflows with LLMs (Ollama, HuggingFace), fine-tuning, models evaluation. Contributor to ARM Learning Paths. Currently building simd.info and simd.ai.</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Technical Support</div>
+                            <div class="item-company">Computer Centre of Computer Engineering and Informatics</div>
+                        </div>
+                        <div class="item-date">Apr 2024 - Present</div>
+                    </div>
+                    <p>Servers and services maintenance (mail, storage, backups). Handled NVIDIA DGX system, including account management and user support. Responsible for website content updates and infrastructure support.</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Linear Algebra Tutoring</div>
+                            <div class="item-company">Self-Employed</div>
+                        </div>
+                        <div class="item-date">Oct 2023 - Jan 2024</div>
+                    </div>
+                    <p>Vectors, Matrices, Linear Systems, Vector Spaces & Subspaces, Linear Transformations, Eigenvalues, Matlab</p>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Public Relations Responsible</div>
+                            <div class="item-company">ACM Student Chapter, University of Patras</div>
+                        </div>
+                        <div class="item-date">May 2023 - Present</div>
+                    </div>
+                    <p>Volunteer position focusing on community engagement and chapter communications.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="card">
+            <div class="section">
+                <h3><i class="fas fa-code"></i> Technical Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4><i class="fas fa-laptop-code"></i> Programming Languages</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">C</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">Python</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4><i class="fas fa-globe"></i> Web Development</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">Svelte</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">HTML</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">WordPress</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4><i class="fas fa-rocket"></i> High Performance Computing</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">OpenMP</span>
+                            <span class="skill-tag">MPI</span>
+                            <span class="skill-tag">OpenACC</span>
+                            <span class="skill-tag">CUDA</span>
+                            <span class="skill-tag">SIMD</span>
+                            <span class="skill-tag">NEON</span>
+                            <span class="skill-tag">SSE4.2</span>
+                            <span class="skill-tag">AVX2</span>
+                            <span class="skill-tag">AVX512</span>
+                            <span class="skill-tag">VSX</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h4><i class="fas fa-database"></i> Database & Systems</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">Cassandra</span>
+                            <span class="skill-tag">Bash</span>
+                            <span class="skill-tag">Ansible</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Linux</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div class="card">
+            <div class="section">
+                <h3><i class="fas fa-project-diagram"></i> Featured Projects</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-title">Bike-Sharing Analytics System</div>
+                        <div class="project-date">Nov 2024 - Jan 2025</div>
+                        <p>Real-time analytics using Kafka, Spark, Cassandra; integrated real-world APIs, ML models, and recovery mechanisms.</p>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-title">HARTH Dataset ML Analysis</div>
+                        <div class="project-date">Feb 2024 - May 2024</div>
+                        <p>Analyzed HARTH dataset using neural networks, random forests, Bayesian classifiers, and k-means clustering.</p>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-title">AIoT: Boxing Gesture Recognition</div>
+                        <div class="project-date">Feb 2024 - May 2024</div>
+                        <p>Collected wearable sensor data, applied Fourier analysis, and trained neural models for human activity recognition.</p>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-title">Volunteer Coordination Platform</div>
+                        <div class="project-date">Oct 2023 - Jan 2024</div>
+                        <p>Designed and deployed a volunteer coordination platform for effective disaster response utilizing HTML, CSS, Javascript, Node.js and multiple APIs.</p>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-title">Parallel 2D Diffusion Solver</div>
+                        <div class="project-date">Nov 2023</div>
+                        <p>Implemented and parallelized a 2D diffusion solver using MPI for distributed computing, demonstrating efficient inter-process communication.</p>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-title">k-Nearest Neighbours Parallelization</div>
+                        <div class="project-date">May 2023</div>
+                        <p>Collaborated in a team of three to implement and parallelize k-Nearest Neighbours problem in C using OpenMP and MPI APIs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Languages Section -->
+        <div class="card">
+            <div class="section">
+                <h3><i class="fas fa-language"></i> Languages</h3>
+                <div class="languages">
+                    <div class="language-item">
+                        <i class="fas fa-star"></i> Greek (Native)
+                    </div>
+                    <div class="language-item">
+                        <i class="fas fa-certificate"></i> English (ECPE Proficiency)
+                    </div>
+                    <div class="language-item">
+                        <i class="fas fa-award"></i> German (B1 Goethe)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
