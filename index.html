@@ -16,7 +16,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             min-height: 100vh;
         }
 
@@ -27,13 +27,14 @@
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.95);
+            background: white;
             backdrop-filter: blur(10px);
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             margin-bottom: 30px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e9ecef;
         }
 
         .card:hover {
@@ -44,7 +45,7 @@
         .header-card {
             padding: 40px;
             text-align: center;
-            background: linear-gradient(135deg, #2c3e50, #3498db);
+            background: #2c2c2c;
             color: white;
             position: relative;
             overflow: hidden;
@@ -132,7 +133,7 @@
         }
 
         .contact-item:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 107, 53, 0.2);
             transform: translateY(-2px);
             color: white;
         }
@@ -144,8 +145,8 @@
         .section h3 {
             font-size: 2em;
             margin-bottom: 25px;
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
+            color: #2c2c2c;
+            border-bottom: 3px solid #ff6b35;
             padding-bottom: 10px;
             position: relative;
         }
@@ -157,15 +158,15 @@
             left: 0;
             width: 50px;
             height: 3px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            background: #ff6b35;
         }
 
         .education-item, .experience-item {
             margin-bottom: 30px;
             padding: 25px;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            background: #f8f9fa;
             border-radius: 15px;
-            border-left: 5px solid #3498db;
+            border-left: 5px solid #ff6b35;
             transition: all 0.3s ease;
         }
 
@@ -186,11 +187,11 @@
         .item-title {
             font-size: 1.3em;
             font-weight: 600;
-            color: #2c3e50;
+            color: #2c2c2c;
         }
 
         .item-date {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: #ff6b35;
             color: white;
             padding: 5px 15px;
             border-radius: 20px;
@@ -199,7 +200,7 @@
         }
 
         .item-company {
-            color: #3498db;
+            color: #ff6b35;
             font-weight: 500;
             margin-bottom: 10px;
         }
@@ -211,16 +212,16 @@
         }
 
         .skill-category {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            background: #f8f9fa;
             padding: 25px;
             border-radius: 15px;
-            border-top: 4px solid #3498db;
+            border-top: 4px solid #ff6b35;
         }
 
         .skill-category h4 {
             font-size: 1.2em;
             margin-bottom: 15px;
-            color: #2c3e50;
+            color: #2c2c2c;
         }
 
         .skill-tags {
@@ -230,7 +231,7 @@
         }
 
         .skill-tag {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: #2c2c2c;
             color: white;
             padding: 8px 15px;
             border-radius: 20px;
@@ -240,7 +241,8 @@
 
         .skill-tag:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 5px 15px rgba(44, 44, 44, 0.4);
+            background: #ff6b35;
         }
 
         .projects-grid {
@@ -250,10 +252,10 @@
         }
 
         .project-card {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            background: #f8f9fa;
             padding: 25px;
             border-radius: 15px;
-            border-left: 5px solid #e74c3c;
+            border-left: 5px solid #ff6b35;
             transition: all 0.3s ease;
         }
 
@@ -265,12 +267,12 @@
         .project-title {
             font-size: 1.2em;
             font-weight: 600;
-            color: #2c3e50;
+            color: #2c2c2c;
             margin-bottom: 10px;
         }
 
         .project-date {
-            color: #e74c3c;
+            color: #ff6b35;
             font-size: 0.9em;
             margin-bottom: 15px;
             font-weight: 500;
@@ -284,7 +286,7 @@
         }
 
         .language-item {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: #2c2c2c;
             color: white;
             padding: 15px 25px;
             border-radius: 25px;
@@ -294,7 +296,8 @@
 
         .language-item:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 10px 20px rgba(44, 44, 44, 0.4);
+            background: #ff6b35;
         }
 
         @media (max-width: 768px) {
