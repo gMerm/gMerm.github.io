@@ -13,10 +13,17 @@
       padding: 0;
     }
     header {
+      display: flex;
+      align-items: center;
       background: #ffffff;
       border-bottom: 2px solid #f7941d;
       padding: 20px;
-      text-align: center;
+    }
+    header img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-right: 20px;
     }
     h1 {
       margin: 0;
@@ -48,64 +55,114 @@
       border-top: 1px solid #eee;
       color: #999;
     }
+    ul.tree, ul.tree ul {
+      list-style: none;
+      padding-left: 1.5em;
+      position: relative;
+    }
+    ul.tree li {
+      margin: 0.5em 0;
+      position: relative;
+    }
+    ul.tree li::before {
+      content: "";
+      position: absolute;
+      top: 0.8em;
+      left: -1em;
+      border-left: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      width: 1em;
+      height: 1em;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>Georgios Mermigkis</h1>
-    <p><a href="mailto:giwrgosmerm@gmail.com">giwrgosmerm@gmail.com</a> | 
-      <a href="https://github.com/gMerm" target="_blank">GitHub</a> | 
-      <a href="https://www.linkedin.com/in/georgios-mermigkis" target="_blank">LinkedIn</a>
-    </p>
+    <img src="personal.jpeg" alt="Profile Photo">
+    <div>
+      <h1>Georgios Mermigkis</h1>
+      <p><a href="mailto:giwrgosmerm@gmail.com">giwrgosmerm@gmail.com</a> | 
+        <a href="https://github.com/gMerm" target="_blank">GitHub</a> | 
+        <a href="https://www.linkedin.com/in/georgios-mermigkis" target="_blank">LinkedIn</a>
+      </p>
+    </div>
   </header>
 
   <main>
     <section>
       <h2>Education</h2>
-      <p><strong>Computer Engineering and Informatics</strong>, University of Patras, Greece</p>
-      <p>Expected Graduation: July 2025 | Avg. Grade: 8</p>
-      <p>Master Thesis: High Performance Computing for Computer-Aided Design of Metamaterials</p>
+      <ul class="tree">
+        <li>
+          Computer Engineering and Informatics, University of Patras, Greece
+          <ul>
+            <li>Expected Graduation: July 2025</li>
+            <li>Avg. Grade: 8</li>
+            <li>Master Thesis: HPC for CAD of Metamaterials</li>
+          </ul>
+        </li>
+      </ul>
     </section>
 
     <section>
       <h2>Experience</h2>
-      <ul>
-        <li><strong>Software Engineer</strong> @ VectorCamp PC (Mar 2024 - Present)</li>
-        <li><strong>Technical Support</strong> @ University of Patras (Apr 2024 - Present)</li>
-        <li><strong>Linear Algebra Tutor</strong> (Oct 2023 - Jan 2024)</li>
-        <li><strong>Public Relations</strong> @ ACM Student Chapter (May 2023 - Present)</li>
+      <ul class="tree">
+        <li>Software Engineer @ VectorCamp PC (Mar 2024 - Present)</li>
+        <li>Technical Support @ University of Patras (Apr 2024 - Present)</li>
+        <li>Linear Algebra Tutor (Oct 2023 - Jan 2024)</li>
+        <li>Public Relations @ ACM Student Chapter (May 2023 - Present)</li>
       </ul>
     </section>
 
     <section>
       <h2>Skills</h2>
-      <p>Programming: C, C++, Python, Svelte, JavaScript, HTML, CSS, Bash</p>
-      <p>High Performance: OpenMP, MPI, OpenACC, CUDA, SIMD (SSE4.2, AVX2, AVX512, NEON, VSX)</p>
-      <p>Databases: MySQL, MongoDB, Cassandra</p>
-      <p>Networking, Linux Scripting, Git, Latex, Electronics</p>
-      <p>Languages: Greek (Native), English (Proficiency), German (B1)</p>
+      <ul class="tree">
+        <li>Programming
+          <ul>
+            <li>C, C++, Python</li>
+            <li>HTML, CSS, JavaScript, Svelte</li>
+            <li>Bash, Shell</li>
+          </ul>
+        </li>
+        <li>HPC: OpenMP, MPI, OpenACC, CUDA, SIMD (SSE4.2, AVX2, AVX512, NEON, VSX)</li>
+        <li>Databases: MySQL, MongoDB, Cassandra</li>
+        <li>Tools: Git, LaTeX, Ansible</li>
+        <li>Languages: Greek (Native), English (Proficiency), German (B1)</li>
+      </ul>
     </section>
 
     <section>
       <h2>Selected Projects</h2>
-      <ul>
-        <li>Bike-Sharing Analytics System (Kafka, Spark, Cassandra)</li>
-        <li>HARTH Dataset ML Analysis (Neural Networks, Random Forests)</li>
-        <li>AIoT: Boxing Gesture Recognition (Fourier, Neural Models)</li>
-        <li>Volunteer Coordination Platform (HTML, CSS, JS, Node.js)</li>
-        <li>Differential Pulse Code Modulation (Matlab)</li>
-        <li>Parallel 2D Diffusion Solver (MPI)</li>
-        <li>Function Approximation with k-NN (C, OpenMP, MPI)</li>
+      <ul class="tree">
+        <li>Bike-Sharing Analytics System
+          <ul><li>Kafka, Spark, Cassandra</li></ul>
+        </li>
+        <li>HARTH Dataset ML Analysis
+          <ul><li>Neural Nets, Random Forests, Clustering</li></ul>
+        </li>
+        <li>AIoT: Boxing Gesture Recognition
+          <ul><li>Fourier, Sensor Data, Neural Models</li></ul>
+        </li>
+        <li>Volunteer Coordination Platform
+          <ul><li>HTML, CSS, JS, Node.js</li></ul>
+        </li>
+        <li>DPCM Simulation
+          <ul><li>Matlab</li></ul>
+        </li>
+        <li>Parallel 2D Diffusion Solver
+          <ul><li>MPI</li></ul>
+        </li>
+        <li>Function Approximation with k-NN
+          <ul><li>C, OpenMP, MPI</li></ul>
+        </li>
       </ul>
     </section>
 
     <section>
       <h2>Links</h2>
-      <ul>
+      <ul class="tree">
         <li><a href="https://simd.info" target="_blank">simd.info</a></li>
         <li><a href="https://simd.ai" target="_blank">simd.ai</a></li>
         <li><a href="https://learn.arm.com/learning-paths/cross-platform/simd-info-demo/" target="_blank">ARM Learning Path</a></li>
-        <li><a href="https://archive.ics.uci.edu/dataset/779/harth" target="_blank">HARTH Dataset</a></li>
       </ul>
     </section>
   </main>
