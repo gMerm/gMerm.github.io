@@ -1,206 +1,724 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Georgios Mermigkis</title>
-  <style>
-    body {
-      font-family: 'Inter', sans-serif; /* Using Inter font for a modern feel */
-      background: #f0f2f5; /* A very light grey for a clean background */
-      color: #333;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-    header {
-      display: flex; /* Flexbox for image and text alignment */
-      align-items: center; /* Vertically center items */
-      background: #ffffff;
-      border-bottom: 3px solid #D35400; /* Darker orange */
-      padding: 20px 40px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      border-radius: 0 0 8px 8px; /* Rounded bottom corners */
-    }
-    header img {
-      width: 100px; /* Size for the profile photo */
-      height: 100px;
-      border-radius: 50%; /* Makes the image circular */
-      margin-right: 25px; /* Space between image and text */
-      object-fit: cover;
-      border: 3px solid #D35400; /* Darker orange border around the image */
-    }
-    header div { /* Container for text within the header */
-      text-align: left; /* Align text left */
-    }
-    h1 {
-      margin: 0;
-      color: #222;
-      font-size: 2.5em;
-    }
-    header p {
-      margin: 5px 0 0;
-      font-size: 1.1em;
-      color: #555;
-    }
-    header p a {
-      margin-right: 15px;
-    }
-    main {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 30px;
-      background: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    }
-    section {
-      padding: 30px 0;
-      border-bottom: 1px solid #eee; /* Simple line separator */
-    }
-    section:last-child {
-      border-bottom: none;
-    }
-    h2 {
-      color: #D35400; /* Darker orange */
-      font-size: 1.8em;
-      margin-bottom: 20px;
-      position: relative;
-      padding-bottom: 10px;
-    }
-    h2::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 50px;
-      height: 3px;
-      background-color: #D35400; /* Darker orange accent */
-      border-radius: 2px;
-    }
-    ul {
-      list-style: none; /* Remove default bullets */
-      padding: 0;
-      margin: 0;
-    }
-    ul li {
-      margin-bottom: 10px; /* Reduced spacing for a tighter list */
-      padding-left: 20px; /* Slight indent for list items */
-      position: relative;
-    }
-    ul li::before {
-      content: '•'; /* Simple dot bullet */
-      color: #D35400; /* Darker orange bullet */
-      position: absolute;
-      left: 0;
-      font-size: 1em;
-      line-height: 1.6; /* Align bullet with text */
-    }
-    ul li ul { /* Style for nested lists within projects */
-      margin-top: 5px;
-      margin-left: 15px; /* Further indent for sub-items */
-    }
-    ul li ul li::before { /* Smaller dot for sub-items */
-      content: '▪';
-      color: #666;
-      font-size: 0.8em;
-    }
-    a {
-      color: #D35400; /* Darker orange */
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    a:hover {
-      text-decoration: underline;
-      color: #B04B00; /* Even darker orange on hover */
-    }
-    footer {
-      text-align: center;
-      padding: 25px;
-      border-top: 1px solid #eee;
-      color: #777;
-      font-size: 0.9em;
-      margin-top: 30px;
-      background: #ffffff;
-      border-radius: 8px 8px 0 0; /* Rounded top corners */
-    }
-  </style>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Georgios Mermigkis - Software Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #ff7849 0%, #ff5722 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .cv-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .profile-section {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: block;
+            object-fit: cover;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .name {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #ffffff, #e2e8f0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .content {
+            padding: 3rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1a202c;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 3px;
+            background: linear-gradient(90deg, #ff5722, transparent);
+            border-radius: 2px;
+        }
+
+        .experience-item, .project-item {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #ff5722;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item::before, .project-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 87, 34, 0.05) 0%, rgba(255, 120, 73, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .experience-item:hover, .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-item:hover::before, .project-item:hover::before {
+            opacity: 1;
+        }
+
+        .job-title, .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .company, .project-tech {
+            color: #ff5722;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .duration {
+            color: #718096;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .description {
+            color: #4a5568;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #ff5722 0%, #ff7849 100%);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 87, 34, 0.4);
+        }
+
+        .education-item {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border-radius: 16px;
+            padding: 2rem;
+            border-left: 4px solid #ff5722;
+        }
+
+        .degree {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+
+        .university {
+            color: #ff5722;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .coursework {
+            color: #4a5568;
+            line-height: 1.7;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .header {
+                padding: 2rem 1rem;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .content {
+                padding: 2rem 1rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <img src="personal.jpeg" alt="Profile Photo of Georgios Mermigkis">
-    <div>
-      <h1>Georgios Mermigkis</h1>
-      <p>
-        <a href="mailto:giwrgosmerm@gmail.com">giwrgosmerm@gmail.com</a> |
-        <a href="https://github.com/gMerm" target="_blank" rel="noopener noreferrer">GitHub</a> |
-        <a href="https://www.linkedin.com/in/georgios-mermigkis" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      </p>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
     </div>
-  </header>
 
-  <main>
-    <section>
-      <h2>Education</h2>
-      <p><strong>Computer Engineering and Informatics</strong>, University of Patras, Greece</p>
-      <p>Expected Graduation: July 2025 | Avg. Grade: 8</p>
-      <p>Master Thesis: High Performance Computing for Computer-Aided Design of Metamaterials</p>
-    </section>
+    <div class="container">
+        <div class="cv-card">
+            <div class="header">
+                <div class="profile-section">
+                    <img src="personal.jpeg" alt="Georgios Mermigkis" class="profile-image">
+                    <h1 class="name">GEORGIOS MERMIGKIS</h1>
+                    <p class="title">Software Engineer & Computer Engineering Student</p>
+                    <div class="contact-info">
+                        <a href="tel:+306985715680" class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            +30 6985715680
+                        </a>
+                        <a href="mailto:giwrgosmerm@gmail.com" class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            giwrgosmerm@gmail.com
+                        </a>
+                        <a href="https://www.linkedin.com/in/georgios-mermigkis" target="_blank" class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            LinkedIn
+                        </a>
+                        <a href="https://github.com/gMerm" target="_blank" class="contact-item">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-    <section>
-      <h2>Experience</h2>
-      <ul>
-        <li><strong>Software Engineer</strong> @ VectorCamp PC (Mar 2024 - Present)</li>
-        <li><strong>Technical Support</strong> @ University of Patras (Apr 2024 - Present)</li>
-        <li><strong>Linear Algebra Tutor</strong> (Oct 2023 - Jan 2024)</li>
-        <li><strong>Public Relations</strong> @ ACM Student Chapter (May 2023 - Present)</li>
-      </ul>
-    </section>
+            <div class="content">
+                <div class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-graduation-cap"></i>
+                        Education
+                    </h2>
+                    <div class="education-item">
+                        <div class="degree">Computer Engineering and Informatics</div>
+                        <div class="university">University of Patras, Greece</div>
+                        <div class="duration">Currently in 5th year • Graduation in July 2025 • Expected Avg. Grade 8</div>
+                        <div class="description">
+                            <strong>Master Thesis:</strong> High Performance Computing for Computer-Aided Design of Metamaterials
+                        </div>
+                        <div class="coursework">
+                            <strong>Relevant coursework:</strong> Data Mining, High Performance Computing, Parallel Computing, Advanced Networks Security, Internet of Things, Computational Complexity, Data Structures, Operating Systems, Distributed Data
+                        </div>
+                    </div>
+                </div>
 
-    <section>
-      <h2>Skills</h2>
-      <p>Programming: C, C++, Python, Svelte, JavaScript, HTML, CSS, Bash</p>
-      <p>High Performance: OpenMP, MPI, OpenACC, CUDA, SIMD (SSE4.2, AVX2, AVX512, NEON, VSX)</p>
-      <p>Databases: MySQL, MongoDB, Cassandra</p>
-      <p>Networking, Linux Scripting, Git, Latex, Electronics</p>
-      <p>Languages: Greek (Native), English (Proficiency), German (B1)</p>
-    </section>
+                <div class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-briefcase"></i>
+                        Experience
+                    </h2>
+                    <div class="experience-item">
+                        <div class="job-title">Software Engineer</div>
+                        <div class="company">VectorCamp PC</div>
+                        <div class="duration">Mar 2024 - Present</div>
+                        <div class="description">
+                            SIMD development on SSE4.2, AVX2, AVX512, NEON, VSX. ML workflows with LLMs (Ollama, HuggingFace), fine-tuning, models evaluation. Contributor to ARM Learning Paths. Currently building simd.info and simd.ai.
+                        </div>
+                    </div>
 
-    <section>
-      <h2>Selected Projects</h2>
-      <ul>
-        <li>Bike-Sharing Analytics System (Kafka, Spark, Cassandra)</li>
-        <li>HARTH Dataset ML Analysis (Neural Networks, Random Forests)</li>
-        <li>AIoT: Boxing Gesture Recognition (Fourier, Neural Models)</li>
-        <li>Volunteer Coordination Platform (HTML, CSS, JS, Node.js)</li>
-        <li>Differential Pulse Code Modulation (Matlab)</li>
-        <li>Parallel 2D Diffusion Solver (MPI)</li>
-        <li>Function Approximation with k-NN (C, OpenMP, MPI)</li>
-        <li>
-          Numerical-Methods (MATLAB implementations for Scientific Computing Lab)
-          <ul>
-            <li>Matrix Cholesky Decomposition Timing Analysis</li>
-            <li>Tridiagonal System Solver (vectorized and non-vectorized)</li>
-            <li>Tensor Operations (TTV/TTM/TTT)</li>
-            <li>Preconditioned Conjugate Gradient (PCG) Method (with ILU/IC preconditioning)</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
+                    <div class="experience-item">
+                        <div class="job-title">Technical Support</div>
+                        <div class="company">Computer Centre of Computer Engineering and Informatics</div>
+                        <div class="duration">Apr 2024 - Present</div>
+                        <div class="description">
+                            Servers and services maintenance (mail, storage, backups). Handled NVIDIA DGX system, including account management and user support. Responsible for website content updates and infrastructure support.
+                        </div>
+                    </div>
 
-    <section>
-      <h2>Links</h2>
-      <ul>
-        <li><a href="https://simd.info" target="_blank" rel="noopener noreferrer">simd.info</a></li>
-        <li><a href="https://simd.ai" target="_blank" rel="noopener noreferrer">simd.ai</a></li>
-        <li><a href="https://learn.arm.com/learning-paths/cross-platform/simd-info-demo/" target="_blank" rel="noopener noreferrer">ARM Learning Path</a></li>
-      </ul>
-    </section>
-  </main>
+                    <div class="experience-item">
+                        <div class="job-title">Linear Algebra Tutoring</div>
+                        <div class="company">Self-Employed</div>
+                        <div class="duration">Oct 2023 - Jan 2024</div>
+                        <div class="description">
+                            Vectors, Matrices, Linear Systems, Vector Spaces & Subspaces, Linear Transformations, Eigenvalues, Matlab
+                        </div>
+                    </div>
 
-  <footer>
-    &copy; 2025 Georgios Mermigkis
-  </footer>
+                    <div class="experience-item">
+                        <div class="job-title">Public Relations Responsible - Volunteering</div>
+                        <div class="company">ACM Student Chapter, University of Patras</div>
+                        <div class="duration">May 2023 - Present</div>
+                        <div class="description">
+                            Responsible for managing public relations and communications for the ACM Student Chapter.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-cogs"></i>
+                        Skills
+                    </h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">C</span>
+                                <span class="skill-tag">C++</span>
+                                <span class="skill-tag">Python</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3><i class="fas fa-globe"></i> Web Development</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Svelte</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">HTML</span>
+                                <span class="skill-tag">CSS</span>
+                                <span class="skill-tag">WordPress</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3><i class="fas fa-rocket"></i> High Performance Computing</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">OpenMP</span>
+                                <span class="skill-tag">MPI</span>
+                                <span class="skill-tag">OpenACC</span>
+                                <span class="skill-tag">CUDA</span>
+                                <span class="skill-tag">SIMD</span>
+                                <span class="skill-tag">NEON</span>
+                                <span class="skill-tag">SSE4.2</span>
+                                <span class="skill-tag">AVX2</span>
+                                <span class="skill-tag">AVX512</span>
+                                <span class="skill-tag">VSX</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3><i class="fas fa-database"></i> Database & DevOps</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">MySQL</span>
+                                <span class="skill-tag">MongoDB</span>
+                                <span class="skill-tag">Cassandra</span>
+                                <span class="skill-tag">Bash</span>
+                                <span class="skill-tag">Ansible</span>
+                                <span class="skill-tag">Git</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3><i class="fas fa-network-wired"></i> Networking & Other</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Network Protocols</span>
+                                <span class="skill-tag">IP-Tables</span>
+                                <span class="skill-tag">Fail2Ban</span>
+                                <span class="skill-tag">LaTeX</span>
+                                <span class="skill-tag">Electronics</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-category">
+                            <h3><i class="fas fa-language"></i> Languages</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Greek (Native)</span>
+                                <span class="skill-tag">English (ECPE)</span>
+                                <span class="skill-tag">German (B1)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-project-diagram"></i>
+                        Projects
+                    </h2>
+                    <div class="project-item">
+                        <div class="project-title">Bike-Sharing Analytics System</div>
+                        <div class="project-tech">Kafka • Spark • Cassandra • ML</div>
+                        <div class="duration">Nov 2024 - Jan 2025</div>
+                        <div class="description">
+                            Real-time analytics using Kafka, Spark, Cassandra; integrated real-world APIs, ML models, and recovery mechanisms.
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-title">HARTH Dataset ML Analysis</div>
+                        <div class="project-tech">Neural Networks • Random Forests • Bayesian Classifiers</div>
+                        <div class="duration">Feb 2024 - May 2024</div>
+                        <div class="description">
+                            Analyzed HARTH dataset using neural networks, random forests, Bayesian classifiers, and k-means clustering.
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-title">AIoT: Boxing Gesture Recognition</div>
+                        <div class="project-tech">Wearable Sensors • Fourier Analysis • Neural Networks</div>
+                        <div class="duration">Feb 2024 - May 2024</div>
+                        <div class="description">
+                            Collected wearable sensor data, applied Fourier analysis, and trained neural models for human activity recognition.
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-title">Volunteer Coordination Platform during Natural Disasters</div>
+                        <div class="project-tech">HTML • CSS • JavaScript • Node.js • APIs</div>
+                        <div class="duration">Oct 2023 - Jan 2024</div>
+                        <div class="description">
+                            Designed and deployed a volunteer coordination platform for effective disaster response utilizing HTML, CSS, Javascript, Node.js and multiple APIs.
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-title">Parallel 2D Diffusion</div>
+                        <div class="project-tech">MPI • Distributed Computing</div>
+                        <div class="duration">Nov 2023</div>
+                        <div class="description">
+                            Implemented and parallelized a 2D diffusion solver using MPI for distributed computing, demonstrating efficient inter-process communication.
+                        </div>
+                    </div>
+
+                    <div class="project-item">
+                        <div class="project-title">Function Approximation with k-Nearest Neighbours</div>
+                        <div class="project-tech">C • OpenMP • MPI</div>
+                        <div class="duration">May 2023</div>
+                        <div class="description">
+                            Collaborated in a team of three to implement and parallelize k-Nearest Neighbours problem in C using OpenMP and MPI APIs.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add smooth scrolling and enhanced animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate skill tags on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = Math.random() * 0.5 + 's';
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.skill-tag').forEach(tag => {
+                observer.observe(tag);
+            });
+
+            // Add dynamic background elements
+            function createFloatingElement() {
+                const element = document.createElement('div');
+                element.className = 'floating-element';
+                element.style.cssText = `
+                    position: fixed;
+                    width: 4px;
+                    height: 4px;
+                    background: rgba(255, 255, 255, 0.5);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    z-index: 1;
+                    animation: floatUp 3s linear infinite;
+                `;
+                
+                element.style.left = Math.random() * 100 + 'vw';
+                element.style.animationDelay = Math.random() * 3 + 's';
+                
+                document.body.appendChild(element);
+                
+                setTimeout(() => {
+                    element.remove();
+                }, 3000);
+            }
+
+            // Create floating elements periodically
+            setInterval(createFloatingElement, 500);
+        });
+
+        // Add CSS for floating animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatUp {
+                from {
+                    transform: translateY(100vh) rotate(0deg);
+                    opacity: 0;
+                }
+                10% {
+                    opacity: 1;
+                }
+                90% {
+                    opacity: 1;
+                }
+                to {
+                    transform: translateY(-100px) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+            
+            .animate-in {
+                animation: bounceIn 0.6s ease-out forwards;
+            }
+            
+            @keyframes bounceIn {
+                0% {
+                    transform: scale(0.3);
+                    opacity: 0;
+                }
+                50% {
+                    transform: scale(1.05);
+                }
+                70% {
+                    transform: scale(0.9);
+                }
+                100% {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
