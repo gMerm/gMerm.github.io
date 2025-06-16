@@ -3,36 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Georgios Mermigkis - Portfolio</title>
+  <title>Georgios Mermigkis</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: #f4f4f4; /* Light grey background for a softer look */
+      font-family: 'Inter', sans-serif; /* Using Inter font for a modern feel */
+      background: #f0f2f5; /* A very light grey for a clean background */
       color: #333;
       margin: 0;
       padding: 0;
       line-height: 1.6;
     }
     header {
-      display: flex;
-      align-items: center;
+      display: flex; /* Flexbox for image and text alignment */
+      align-items: center; /* Vertically center items */
       background: #ffffff;
-      border-bottom: 3px solid #f7941d; /* Slightly thicker border for emphasis */
-      padding: 20px 40px; /* More padding for a spacious feel */
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+      border-bottom: 3px solid #D35400; /* Darker orange */
+      padding: 20px 40px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-radius: 0 0 8px 8px; /* Rounded bottom corners */
     }
     header img {
-      width: 100px; /* Slightly larger image */
+      width: 100px; /* Size for the profile photo */
       height: 100px;
-      border-radius: 50%;
-      margin-right: 25px;
-      object-fit: cover; /* Ensures image covers the area nicely */
-      border: 3px solid #f7941d; /* Border around the image */
+      border-radius: 50%; /* Makes the image circular */
+      margin-right: 25px; /* Space between image and text */
+      object-fit: cover;
+      border: 3px solid #D35400; /* Darker orange border around the image */
+    }
+    header div { /* Container for text within the header */
+      text-align: left; /* Align text left */
     }
     h1 {
       margin: 0;
       color: #222;
-      font-size: 2.5em; /* Larger heading */
+      font-size: 2.5em;
     }
     header p {
       margin: 5px 0 0;
@@ -40,28 +44,28 @@
       color: #555;
     }
     header p a {
-      margin-right: 15px; /* Spacing out the links */
+      margin-right: 15px;
     }
     main {
-      max-width: 900px; /* Wider main content area */
+      max-width: 900px;
       margin: 40px auto;
       padding: 0 30px;
-      background: #ffffff; /* White background for the content area */
-      border-radius: 8px; /* Slightly rounded corners */
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08); /* More prominent shadow for the main block */
+      background: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     }
     section {
-      padding: 30px 0; /* More vertical padding for sections */
-      border-bottom: 1px dashed #eee; /* Dashed separator for a softer look */
+      padding: 30px 0;
+      border-bottom: 1px solid #eee; /* Simple line separator */
     }
     section:last-child {
-      border-bottom: none; /* No border for the last section */
+      border-bottom: none;
     }
     h2 {
-      color: #f7941d;
-      font-size: 1.8em; /* Larger subheadings */
+      color: #D35400; /* Darker orange */
+      font-size: 1.8em;
       margin-bottom: 20px;
-      position: relative; /* For the accent line below */
+      position: relative;
       padding-bottom: 10px;
     }
     h2::after {
@@ -69,46 +73,46 @@
       position: absolute;
       left: 0;
       bottom: 0;
-      width: 50px; /* Short accent line */
+      width: 50px;
       height: 3px;
-      background-color: #f7941d;
+      background-color: #D35400; /* Darker orange accent */
+      border-radius: 2px;
     }
     ul {
-      list-style: none; /* Remove default bullet points */
+      list-style: none; /* Remove default bullets */
       padding: 0;
       margin: 0;
     }
     ul li {
-      margin-bottom: 15px; /* Spacing between list items */
-      padding-left: 25px; /* Indent for content */
+      margin-bottom: 10px; /* Reduced spacing for a tighter list */
+      padding-left: 20px; /* Slight indent for list items */
       position: relative;
     }
     ul li::before {
-      content: '►'; /* Custom bullet point */
-      color: #f7941d;
+      content: '•'; /* Simple dot bullet */
+      color: #D35400; /* Darker orange bullet */
       position: absolute;
       left: 0;
-      font-size: 0.8em;
-      top: 3px;
+      font-size: 1em;
+      line-height: 1.6; /* Align bullet with text */
     }
-    ul li ul { /* Styles for nested lists */
+    ul li ul { /* Style for nested lists within projects */
       margin-top: 5px;
-      margin-left: 20px; /* Further indent for sub-items */
+      margin-left: 15px; /* Further indent for sub-items */
     }
-    ul li ul li::before {
-      content: '▪'; /* Different custom bullet for nested items */
-      color: #555;
-      font-size: 0.7em;
-      top: 4px;
+    ul li ul li::before { /* Smaller dot for sub-items */
+      content: '▪';
+      color: #666;
+      font-size: 0.8em;
     }
     a {
-      color: #f7941d;
+      color: #D35400; /* Darker orange */
       text-decoration: none;
-      transition: color 0.3s ease; /* Smooth hover effect */
+      transition: color 0.3s ease;
     }
     a:hover {
       text-decoration: underline;
-      color: #e08310; /* Slightly darker orange on hover */
+      color: #B04B00; /* Even darker orange on hover */
     }
     footer {
       text-align: center;
@@ -118,8 +122,10 @@
       font-size: 0.9em;
       margin-top: 30px;
       background: #ffffff;
+      border-radius: 8px 8px 0 0; /* Rounded top corners */
     }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -137,76 +143,48 @@
   <main>
     <section>
       <h2>Education</h2>
-      <ul>
-        <li>
-          **Computer Engineering and Informatics**, University of Patras, Greece
-          <ul>
-            <li>Expected Graduation: July 2025</li>
-            <li>Avg. Grade: 8</li>
-            <li>Master Thesis: HPC for CAD of Metamaterials</li>
-          </ul>
-        </li>
-      </ul>
+      <p><strong>Computer Engineering and Informatics</strong>, University of Patras, Greece</p>
+      <p>Expected Graduation: July 2025 | Avg. Grade: 8</p>
+      <p>Master Thesis: High Performance Computing for Computer-Aided Design of Metamaterials</p>
     </section>
 
     <section>
       <h2>Experience</h2>
       <ul>
-        <li>Software Engineer @ VectorCamp PC (Mar 2024 - Present)</li>
-        <li>Technical Support @ University of Patras (Apr 2024 - Present)</li>
-        <li>Linear Algebra Tutor (Oct 2023 - Jan 2024)</li>
-        <li>Public Relations @ ACM Student Chapter (May 2023 - Present)</li>
+        <li><strong>Software Engineer</strong> @ VectorCamp PC (Mar 2024 - Present)</li>
+        <li><strong>Technical Support</strong> @ University of Patras (Apr 2024 - Present)</li>
+        <li><strong>Linear Algebra Tutor</strong> (Oct 2023 - Jan 2024)</li>
+        <li><strong>Public Relations</strong> @ ACM Student Chapter (May 2023 - Present)</li>
       </ul>
     </section>
 
     <section>
       <h2>Skills</h2>
-      <ul>
-        <li>
-          **Programming**
-          <ul>
-            <li>C, C++, Python</li>
-            <li>HTML, CSS, JavaScript, Svelte</li>
-            <li>Bash, Shell</li>
-          </ul>
-        </li>
-        <li>**HPC**: OpenMP, MPI, OpenACC, CUDA, SIMD (SSE4.2, AVX2, AVX512, NEON, VSX)</li>
-        <li>**Databases**: MySQL, MongoDB, Cassandra</li>
-        <li>**Tools**: Git, LaTeX, Ansible</li>
-        <li>**Languages**: Greek (Native), English (Proficiency), German (B1)</li>
-      </ul>
+      <p>Programming: C, C++, Python, Svelte, JavaScript, HTML, CSS, Bash</p>
+      <p>High Performance: OpenMP, MPI, OpenACC, CUDA, SIMD (SSE4.2, AVX2, AVX512, NEON, VSX)</p>
+      <p>Databases: MySQL, MongoDB, Cassandra</p>
+      <p>Networking, Linux Scripting, Git, Latex, Electronics</p>
+      <p>Languages: Greek (Native), English (Proficiency), German (B1)</p>
     </section>
 
     <section>
       <h2>Selected Projects</h2>
       <ul>
+        <li>Bike-Sharing Analytics System (Kafka, Spark, Cassandra)</li>
+        <li>HARTH Dataset ML Analysis (Neural Networks, Random Forests)</li>
+        <li>AIoT: Boxing Gesture Recognition (Fourier, Neural Models)</li>
+        <li>Volunteer Coordination Platform (HTML, CSS, JS, Node.js)</li>
+        <li>Differential Pulse Code Modulation (Matlab)</li>
+        <li>Parallel 2D Diffusion Solver (MPI)</li>
+        <li>Function Approximation with k-NN (C, OpenMP, MPI)</li>
         <li>
-          **Bike-Sharing Analytics System**
-          <ul><li>Kafka, Spark, Cassandra</li></ul>
-        </li>
-        <li>
-          **HARTH Dataset ML Analysis**
-          <ul><li>Neural Nets, Random Forests, Clustering</li></ul>
-        </li>
-        <li>
-          **AIoT: Boxing Gesture Recognition**
-          <ul><li>Fourier, Sensor Data, Neural Models</li></ul>
-        </li>
-        <li>
-          **Volunteer Coordination Platform**
-          <ul><li>HTML, CSS, JS, Node.js</li></ul>
-        </li>
-        <li>
-          **DPCM Simulation**
-          <ul><li>Matlab</li></ul>
-        </li>
-        <li>
-          **Parallel 2D Diffusion Solver**
-          <ul><li>MPI</li></ul>
-        </li>
-        <li>
-          **Function Approximation with k-NN**
-          <ul><li>C, OpenMP, MPI</li></ul>
+          Numerical-Methods (MATLAB implementations for Scientific Computing Lab)
+          <ul>
+            <li>Matrix Cholesky Decomposition Timing Analysis</li>
+            <li>Tridiagonal System Solver (vectorized and non-vectorized)</li>
+            <li>Tensor Operations (TTV/TTM/TTT)</li>
+            <li>Preconditioned Conjugate Gradient (PCG) Method (with ILU/IC preconditioning)</li>
+          </ul>
         </li>
       </ul>
     </section>
